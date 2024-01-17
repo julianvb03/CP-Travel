@@ -45,7 +45,8 @@ To compile a solution, use the following command:
 ```bash
 make compile t=[u/k] n=[problem_number]
 ```
-Where:
+
+**Where:**
 
     **t** specifies the type of problem (u for UVA, k for Kattis).
     **n** is the problem number.
