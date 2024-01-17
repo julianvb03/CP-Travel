@@ -32,3 +32,38 @@ Each chapter directory contains problem sets, source code, input/output files, a
 │   ├── Chapter#1
 │   └── Chapter#2
 └── LICENSE
+```
+
+# How to Use
+
+## Compilation
+
+The repository includes a generic Makefile for compiling and testing code. The Makefile supports two main online judge platforms: UVA and Kattis.
+
+To compile a solution, use the following command:
+
+```bash
+make compile t=[u/k] n=[problem_number]
+```
+
+# Testing
+
+You can test the compiled programs against predefined input and output files. The Makefile includes rules for running and testing both UVA and Kattis solutions.
+
+## For UVA problems:
+
+```bash
+make run_uva
+```
+
+## For Kattis problems:
+
+```bash
+make run_kattis
+```
+
+## Cleaning Up
+
+```bash
+make clean
+```
