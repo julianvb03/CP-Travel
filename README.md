@@ -38,7 +38,7 @@ Each chapter directory contains problem sets, source code, input/output files, a
 
 ## Compilation
 
-The repository includes a generic Makefile for compiling and testing code. The Makefile supports two main online judge platforms: UVA and Kattis.
+TThe repository includes a generic Makefile for compiling and testing code, designed for problems from two online judge platforms: UVA and Kattis.
 
 To compile a solution, use the following command:
 
