@@ -48,8 +48,8 @@ make compile t=[u/k] n=[problem_number]
 
 **Where:**
 
-&emsp;**t** specifies the type of problem (u for UVA, k for Kattis).
-&emsp;**n** is the problem number.
+**t** specifies the type of problem (u for UVA, k for Kattis).
+**n** is the problem number.
 
 # Testing
 
