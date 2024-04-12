@@ -27,20 +27,26 @@ Each chapter directory contains problem sets, source code, input/output files, a
 │   │   ├── output.txt
 │   │   ├── UVA
 │   │   └── Varios
-│   └── Chapter#2
+│   └── Chapter#N
 ├── Estructuras_Algoritmos
 │   ├── Chapter#1
-│   └── Chapter#2
+│   └── Chapter#N
 └── LICENSE
 ```
 
-# How to Use
+## How to Use
 
-## Compilation
+### Compilation
 
-TThe repository includes a generic Makefile for compiling and testing code, designed for problems from two online judge platforms: UVA and Kattis.
+The repository is configured with a Makefile that includes default values for the problem type (`t`) and problem number (`n`), which are set to 'u' (UVA) and '1', respectively. These values can be overridden by specifying them when running the make command.
 
-To compile a solution, use the following command:
+The Makefile is set up to dynamically select source directories and files based on the type of problem (UVA or Kattis). The following is a simplified explanation of the Makefile's compilation process:
+
+- **Directory Configuration**: Automatically determines the working directory paths for UVA and Kattis problem files.
+- **Compiler Settings**: Uses `g++` for compiling C++ files.
+- **Source and Executable Configuration**: Depending on the problem type (`t`), it selects the appropriate source directory and source file. It compiles the source file into an executable named `a.out` in the same directory.
+
+To compile a solution, use the command:
 
 ```bash
 make compile t=[u/k] n=[problem_number]
@@ -48,28 +54,63 @@ make compile t=[u/k] n=[problem_number]
 
 **Where:**
 
-&emsp;**t** specifies the type of problem (u for UVA, k for Kattis).
+- **t** specifies the type of problem (`u` for UVA, `k` for Kattis), default is 'u'.
+- **n** is the problem number, default is '1'.
 
-&emsp;**n** is the problem number.
+This setup allows for flexible compilation based on the problem source and type, streamlining the process for different problem sets.
 
-# Testing
+### Running Solutions
 
-You can test the compiled programs against predefined input and output files. The Makefile includes rules for running and testing both UVA and Kattis solutions.
+The Makefile includes several rules for running and testing the compiled solutions, accommodating both detailed checks against expected outputs and quicker execution checks without comparison.
 
-## For UVA problems:
+#### Detailed Testing
 
-```bash
-make run_uva
-```
+These commands execute the compiled solution, redirecting `input.txt` as input and comparing the actual output against `output_expected.txt` to verify correctness:
 
-## For Kattis problems:
+- **For UVA problems:**
 
-```bash
-make run_kattis
-```
+  ```bash
+  make run_uva
+  ```
 
-## Cleaning Up
+- **For Kattis problems:**
+
+  ```bash
+  make run_kattis
+  ```
+
+The outputs are written to `output.txt` and then compared to `output_expected.txt` using the `diff` command. Any differences are displayed, indicating discrepancies from expected results.
+
+#### Quick Testing
+
+For rapid testing without output verification:
+
+- **General execution command (chooses based on `t` variable):**
+
+  ```bash
+  make run
+  ```
+
+- **Execute UVA solution:**
+
+  ```bash
+  make runu
+  ```
+
+- **Execute Kattis solution:**
+
+  ```bash
+  make runk
+  ```
+
+These commands directly run the compiled executable `a.out`, which can be useful for quick checks or debugging.
+
+### Cleaning Up
+
+To remove all compiled and temporary files from both the UVA and Kattis directories, use:
 
 ```bash
 make clean
 ```
+
+This command cleans the directories by removing all `.o` and `.out` files, helping maintain a tidy workspace.
