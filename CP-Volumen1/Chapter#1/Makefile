@@ -31,8 +31,11 @@ run_kattis:
 
 # Simplified run rules without diff for quick tests
 .PHONY: runu runk
-runu runk:
-	@$(EXEC)
+runu:
+	@$(UVA_DIR)/a.out
+
+runk:
+	@$(KATTIS_DIR)/a.out
 
 # Clean rule for both UVA and Kattis directories
 .PHONY: clean
