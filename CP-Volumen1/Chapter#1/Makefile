@@ -27,7 +27,7 @@ run_uva:
 	@($(EXEC) < input.txt) > output.txt; diff output.txt output_expected.txt
 
 run_kattis:
-	@$(EXEC) < input.txt > output.txt; diff output.txt output_expected.txt
+	@($(EXEC) < input.txt) > output.txt; diff output.txt output_expected.txt
 
 # Simplified run rules without diff for quick tests
 .PHONY: runu runk
