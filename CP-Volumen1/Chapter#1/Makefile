@@ -46,3 +46,19 @@ clean:
 # General run rule that delegates based on the 't' variable
 .PHONY: run
 run: $(if $(filter $(t),u),run_uva, $(if $(filter $(t),k),run_kattis))
+
+ifeq ($(t), k)
+	TARGETDIR = $(KATTIS_DIR)
+	NAMEA = Kattis-$(n).cpp
+else
+	TARGETDIR = $(UVA_DIR)
+	NAMEA = Uva-$(n).cpp
+endif
+
+TARGETDIR = $(shell if [ "$(t)" = "k" ]; then echo "$(KATTIS_DIR)"; else echo "$(UVA_DIR)"; fi)
+NAMEA = $(shell if [ "$(t)" = "k" ]; then echo "Kattis-$(n).cpp"; else echo "Uva-$(n).cpp"; fi)
+
+.PHONY: create_file
+create_file:
+	@touch $(TARGETDIR)/$(NAMEA)
+	@cp ../template.cpp $(TARGETDIR)/$(NAMEA)	
